@@ -1,0 +1,17 @@
+cz\feec\userclientfx\exceptions\ResourceExceptions$EmailNotFoundException.class
+cz\feec\userclientfx\controllers\SignUpController.class
+cz\feec\userclientfx\entity\Data.class
+cz\feec\userclientfx\exceptions\ResourceExceptions.class
+cz\feec\userclientfx\Tester.class
+cz\feec\userclientfx\entity\Address.class
+cz\feec\userclientfx\controllers\LoginController.class
+cz\feec\userclientfx\exceptions\ResourceExceptions$EmailAlreadyExistException.class
+cz\feec\userclientfx\MainApp.class
+cz\feec\userclientfx\entity\User.class
+cz\feec\userclientfx\exceptions\ResourceExceptions$BadRequestException.class
+cz\feec\userclientfx\LoginUser.class
+cz\feec\userclientfx\controllers\MainController.class
+cz\feec\userclientfx\entity\Role.class
+cz\feec\userclientfx\exceptions\ResourceExceptions$BadResourceExeption.class
+cz\feec\userclientfx\exceptions\ResourceExceptions$BadConnectionException.class
+cz\feec\userclientfx\rest\UserRestApi.class

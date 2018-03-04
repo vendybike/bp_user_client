@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #0A0A2A;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.feec.userclientfx.controllers.LoginController">
+   <children>
+      <JFXTextField fx:id="emailField" focusColor="#0080ff" layoutX="305.0" layoutY="300.0" prefHeight="25.0" prefWidth="190.0" promptText="Email" unFocusColor="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font></JFXTextField>
+      <JFXPasswordField fx:id="passwordField" focusColor="#0080ff" layoutX="305.0" layoutY="360.0" prefHeight="25.0" prefWidth="190.0" promptText="Password" unFocusColor="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font></JFXPasswordField>
+      <JFXButton fx:id="loginButton" layoutX="340.0" layoutY="431.0" onAction="#loginButtonClick" prefHeight="44.0" prefWidth="120.0" style="-fx-background-color: #0080FF;" text="Login" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="signUpButton" layoutX="666.0" layoutY="14.0" onAction="#signUpButtonClick" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #0080FF;" text="  Sign up" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="483.0" layoutY="18.0" text="Ještě nemáš účet ?" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="252.0" layoutY="156.0" text="REST vs. SOAP" textFill="WHITE">
+         <font>
+            <Font size="47.0" />
+         </font>
+      </Label>
+      <FontAwesomeIconView fill="#0080ff" glyphName="USER" layoutX="270.0" layoutY="327.0" size="30" text="" />
+      <FontAwesomeIconView fill="#0080ff" glyphName="KEY" layoutX="266.0" layoutY="386.0" size="30" />
+      <FontAwesomeIconView fill="WHITE" glyphName="USER_PLUS" layoutX="676.0" layoutY="39.0" size="17" />
+    
+   </children>
+</AnchorPane>
