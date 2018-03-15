@@ -12,7 +12,7 @@ import java.util.List;
  * @author vendy
  */
 public class Address {
-    
+
     private long id;
     private String country;
     private String city;

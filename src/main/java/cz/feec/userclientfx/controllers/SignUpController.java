@@ -7,7 +7,7 @@ package cz.feec.userclientfx.controllers;
 
 import cz.feec.userclientfx.entity.User;
 import cz.feec.userclientfx.exceptions.ResourceExceptions;
-import cz.feec.userclientfx.rest.UserRestApi;
+import cz.feec.userclientfx.API.UserRestApi;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,6 +21,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.controlsfx.validation.ValidationSupport;
+import org.controlsfx.validation.Validator;
 
 /**
  * FXML Controller class
@@ -56,11 +58,12 @@ public class SignUpController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
     }
 
     @FXML
     private void signUpButtonClick(ActionEvent event) throws IOException, ResourceExceptions {
+
         if (signUp()) {
             stage = (Stage) signUpButton.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/Login.fxml"));

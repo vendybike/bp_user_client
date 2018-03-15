@@ -52,8 +52,8 @@ public class ResourceExceptions extends Exception {
         }
 
     }
-    
-    public static class BadRequestException extends ResourceExceptions{
+
+    public static class BadRequestException extends ResourceExceptions {
 
         public BadRequestException() {
         }
@@ -73,7 +73,7 @@ public class ResourceExceptions extends Exception {
         public BadRequestException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
             super(message, cause, enableSuppression, writableStackTrace);
         }
-        
+
     }
 
     public static class EmailNotFoundException extends ResourceExceptions {
@@ -98,8 +98,8 @@ public class ResourceExceptions extends Exception {
         }
 
     }
-    
-    public static class BadResourceExeption extends ResourceExceptions{
+
+    public static class BadResourceExeption extends ResourceExceptions {
 
         public BadResourceExeption() {
         }
@@ -119,7 +119,7 @@ public class ResourceExceptions extends Exception {
         public BadResourceExeption(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
             super(message, cause, enableSuppression, writableStackTrace);
         }
-        
+
     }
 
     public static class BadConnectionException extends ResourceExceptions {
@@ -143,7 +143,5 @@ public class ResourceExceptions extends Exception {
             super(message, cause, enableSuppression, writableStackTrace);
         }
 
-        
-        
     }
 }

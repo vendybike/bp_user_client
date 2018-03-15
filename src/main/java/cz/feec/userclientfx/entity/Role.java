@@ -12,9 +12,9 @@ import java.util.List;
  * @author vendy
  */
 public class Role {
-    
+
     private String roleName;
-    private List<Integer> users ;
+    private List<Integer> users;
 
     public String getRoleName() {
         return roleName;

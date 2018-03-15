@@ -7,7 +7,7 @@ package cz.feec.userclientfx.controllers;
 
 import cz.feec.userclientfx.LoginUser;
 import cz.feec.userclientfx.entity.User;
-import cz.feec.userclientfx.rest.UserRestApi;
+import cz.feec.userclientfx.API.UserRestApi;
 import java.io.IOException;
 import java.net.URL;
 import java.security.MessageDigest;
@@ -22,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javax.xml.soap.SOAPException;
 
 /**
  *
@@ -39,16 +40,16 @@ public class LoginController {
     private Button signUpButton;
 
     Stage stage;
-    
-    UserRestApi connect;
+
+    UserRestApi rest;
 
     public void initialize(URL url, ResourceBundle rb) {
     }
 
     @FXML
-    private void loginButtonClick(ActionEvent event) throws IOException, NoSuchAlgorithmException {
+    private void loginButtonClick(ActionEvent event) throws IOException, NoSuchAlgorithmException, SOAPException {
         if (authentizated()) {
-            
+
             stage = (Stage) loginButton.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/Main.fxml"));
 
@@ -58,33 +59,33 @@ public class LoginController {
     }
 
     private boolean authentizated() throws NoSuchAlgorithmException, IOException {
-       
-       if (passwordField.getText().isEmpty() && emailField.getText().isEmpty()) {
+
+        if (passwordField.getText().isEmpty() && emailField.getText().isEmpty()) {
             return false;
         }
-        
+
         UserRestApi rest = UserRestApi.getRest();
         User user = rest.getUser(emailField.getText());
-        System.out.println(sha1(passwordField.getText()+emailField.getText()) +" = "+ user.getPassword());
-        if(user.getEmail().equals(emailField.getText())){
-            if(sha1(passwordField.getText()+emailField.getText()).equals(user.getPassword())){
-                LoginUser.loginUser(user);  
+        System.out.println(sha1(passwordField.getText() + emailField.getText()) + " = " + user.getPassword());
+        if (user.getEmail().equals(emailField.getText())) {
+            if (sha1(passwordField.getText() + emailField.getText()).equals(user.getPassword())) {
+                LoginUser.loginUser(user);
                 return true;
             }
         }
         return false;
     }
-    
+
     @FXML
     private void signUpButtonClick(ActionEvent event) throws IOException {
-        
-            stage = (Stage) signUpButton.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/SignUp.fxml"));
 
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
+        stage = (Stage) signUpButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/SignUp.fxml"));
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
     }
-    
+
     private String sha1(String input) throws NoSuchAlgorithmException {
         MessageDigest mDigest = MessageDigest.getInstance("SHA1");
         byte[] result = mDigest.digest(input.getBytes());

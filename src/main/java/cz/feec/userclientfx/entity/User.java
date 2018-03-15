@@ -12,21 +12,20 @@ import java.util.List;
  *
  * @author vendy
  */
-@JsonIgnoreProperties(ignoreUnknown = true, value =  {"data", "role"})
+@JsonIgnoreProperties(ignoreUnknown = true, value = {"data", "role"})
 public class User {
-    
+
     protected long id;
     protected String email;
     protected String password;
     protected int age;
     protected String workPosition;
-    protected List<Data>data;
+    protected List<Data> data;
     // private Data data;
     protected Address address;
     protected List<Role> roles;
     // private Role role;
 
-    
     public List<Data> getData() {
         return data;
     }
@@ -42,8 +41,6 @@ public class User {
     public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
-    
-    
 
     public String getPassword() {
         return password;
@@ -76,7 +73,7 @@ public class User {
     public void setWorkPosition(String workPosition) {
         this.workPosition = workPosition;
     }
-    
+
     public long getId() {
         return id;
     }
@@ -92,11 +89,9 @@ public class User {
     public void setAddress(Address address) {
         this.address = address;
     }
-    
-   
+
     @Override
     public String toString() {
         return "User{" + "email=" + email + ", age=" + age + ", workPosition=" + workPosition + '}';
     }
 }
-

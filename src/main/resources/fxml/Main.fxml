@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXToggleButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -12,46 +13,52 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #0A0A2A;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.feec.userclientfx.controllers.MainController">
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0A0A2A;" BorderPane.alignment="CENTER">
-         <children>
-            <LineChart fx:id="lineChart" prefHeight="400.0" prefWidth="598.0">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </LineChart>
-         </children>
-      </AnchorPane>
-   </center>
-   <left>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <JFXButton fx:id="buttonTest" layoutX="3.0" layoutY="436.0" onAction="#handleButtonTestAction" prefHeight="75.0" prefWidth="195.0" style="-fx-background-color: #0080FF;" text="Test" textFill="WHITE" AnchorPane.bottomAnchor="69.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="436.0">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </JFXButton>
-            <JFXToggleButton layoutX="41.0" layoutY="14.0" prefHeight="58.0" prefWidth="120.0" text="Data" toggleColor="#0080ff" toggleLineColor="#fafafa" unToggleColor="#0080ff" unToggleLineColor="#fafafa" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="39.0" />
-            <Label layoutX="39.0" layoutY="35.0" text="Čas" />
-            <ComboBox layoutX="14.0" layoutY="72.0" prefHeight="25.0" prefWidth="177.0" promptText="Metoda" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
-         </children>
-      </AnchorPane>
-   </left>
-   <top>
-      <Label fx:id="workPositionLabel" textFill="WHITE" BorderPane.alignment="CENTER">
-         <graphic>
-            <Label fx:id="loginUserLabel" textFill="WHITE">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-         </graphic>
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-   </top>
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0A0A2A;" BorderPane.alignment="CENTER">
+            <children>
+                <LineChart fx:id="lineChart" prefHeight="400.0" prefWidth="598.0">
+                    <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis side="LEFT" />
+                    </yAxis>
+                </LineChart>
+            </children>
+        </AnchorPane>
+    </center>
+    <left>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <JFXButton fx:id="buttonTest" layoutX="3.0" layoutY="436.0" onAction="#handleButtonTestAction" prefHeight="75.0" prefWidth="195.0" style="-fx-background-color: #0080FF;" text="Test" textFill="WHITE" AnchorPane.bottomAnchor="69.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="436.0">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </JFXButton>
+                <JFXToggleButton layoutX="41.0" layoutY="14.0" prefHeight="58.0" prefWidth="120.0" text="Data" textFill="WHITE" toggleColor="#0080ff" toggleLineColor="#fafafa" unToggleColor="#0080ff" unToggleLineColor="#fafafa" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="39.0" />
+                <Label layoutX="39.0" layoutY="35.0" text="Čas" textFill="WHITE" />
+                <ComboBox fx:id="comboBox" layoutX="14.0" layoutY="72.0" prefHeight="25.0" prefWidth="177.0" promptText="Metoda" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+            </children>
+        </AnchorPane>
+    </left>
+    <top>
+        <AnchorPane prefHeight="33.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="loginUserLabel" layoutX="40.0" layoutY="4.0" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <FontAwesomeIconView fill="#0080ff" glyphName="USER_CIRCLE_ALT" layoutX="14.0" layoutY="22.0" size="20" />
+                <JFXButton fx:id="logoutButton" layoutX="751.0" layoutY="2.0" onAction="#buttonLogoutClick" prefHeight="25.0" prefWidth="28.0" textFill="TRANSPARENT">
+                    <graphic>
+                        <FontAwesomeIconView fill="#0080ff" glyphName="USER_TIMES" size="20" wrappingWidth="12.0" />
+                    </graphic>
+                    <font>
+                        <Font size="1.0" />
+                    </font>
+                </JFXButton>
+            </children>
+        </AnchorPane>
+    </top>
 </BorderPane>

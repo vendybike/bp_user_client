@@ -13,7 +13,7 @@ import cz.feec.userclientfx.entity.User;
  */
 public class LoginUser extends User {
 
-    private static LoginUser loginUser = null;
+    private static volatile LoginUser loginUser = null;
 
     private LoginUser(User user) {
         id = user.getId();
@@ -29,16 +29,22 @@ public class LoginUser extends User {
     public static void loginUser(User user) {
 
         if (loginUser == null) {
-            loginUser = new LoginUser(user);
+            synchronized (LoginUser.class) {
+                if (loginUser == null) {
+                    loginUser = new LoginUser(user);
+                }
+            }
         }
     }
-    
-    public static LoginUser getLoginUser(){
+
+    public static LoginUser getLoginUser() {
         return loginUser;
     }
 
     public void logoutUser() {
-        loginUser = null;
+        synchronized (LoginUser.class) {
+            loginUser = null;
+        }
     }
 
 }

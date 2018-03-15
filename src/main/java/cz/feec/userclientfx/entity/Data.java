@@ -10,11 +10,13 @@ package cz.feec.userclientfx.entity;
  * @author vendy
  */
 public class Data {
-    
+
+    private long id;
     private double pulse;
     private double stress;
     private double fat;
     private double weight;
+    private String user;
 
     public double getPulse() {
         return pulse;
@@ -43,4 +45,21 @@ public class Data {
     public double getWeight() {
         return weight;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
 }

@@ -1,0 +1,473 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://soap.userServer.feec.cz/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="userServiceService" targetNamespace="http://soap.userServer.feec.cz/">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://soap.userServer.feec.cz/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://soap.userServer.feec.cz/">
+            <xs:element name="createData" type="tns:createData"/>
+            <xs:element name="createDataResponse" type="tns:createDataResponse"/>
+            <xs:element name="createUser" type="tns:createUser"/>
+            <xs:element name="createUserResponse" type="tns:createUserResponse"/>
+            <xs:element name="deleteUser" type="tns:deleteUser"/>
+            <xs:element name="deleteUserResponse" type="tns:deleteUserResponse"/>
+            <xs:element name="getData" type="tns:getData"/>
+            <xs:element name="getDataResponse" type="tns:getDataResponse"/>
+            <xs:element name="getDates" type="tns:getDates"/>
+            <xs:element name="getDatesResponse" type="tns:getDatesResponse"/>
+            <xs:element name="getUser" type="tns:getUser"/>
+            <xs:element name="getUserAddress" type="tns:getUserAddress"/>
+            <xs:element name="getUserAddressResponse" type="tns:getUserAddressResponse"/>
+            <xs:element name="getUserDates" type="tns:getUserDates"/>
+            <xs:element name="getUserDatesResponse" type="tns:getUserDatesResponse"/>
+            <xs:element name="getUserResponse" type="tns:getUserResponse"/>
+            <xs:element name="getUsers" type="tns:getUsers"/>
+            <xs:element name="getUsersResponse" type="tns:getUsersResponse"/>
+            <xs:element name="updateUser" type="tns:updateUser"/>
+            <xs:element name="updateUserResponse" type="tns:updateUserResponse"/>
+            <xs:complexType name="getUser">
+                <xs:sequence>
+                    <xs:element name="arg0" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getUserResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:userEntity"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="userEntity">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="address" type="tns:addressEntity"/>
+                    <xs:element name="age" type="xs:int"/>
+                    <xs:element minOccurs="0" name="email" type="xs:string"/>
+                    <xs:element minOccurs="0" name="id" type="xs:long"/>
+                    <xs:element minOccurs="0" name="password" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="roles" nillable="true" type="tns:roleEntity"/>
+                    <xs:element minOccurs="0" name="workPosition" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="addressEntity">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="city" type="xs:string"/>
+                    <xs:element minOccurs="0" name="country" type="xs:string"/>
+                    <xs:element name="houseNumber" type="xs:int"/>
+                    <xs:element minOccurs="0" name="region" type="xs:string"/>
+                    <xs:element minOccurs="0" name="street" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="roleEntity">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="id" type="xs:long"/>
+                    <xs:element minOccurs="0" name="roleName" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="users" nillable="true" type="tns:userEntity"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="dataEntity">
+                <xs:sequence>
+                    <xs:element name="fat" type="xs:double"/>
+                    <xs:element minOccurs="0" name="id" type="xs:long"/>
+                    <xs:element name="pulse" type="xs:double"/>
+                    <xs:element name="stress" type="xs:double"/>
+                    <xs:element name="weight" type="xs:double"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getUsers">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="getUsersResponse">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:userEntity"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getUserDates">
+                <xs:sequence>
+                    <xs:element name="arg0" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getUserDatesResponse">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:dataEntity"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="createData">
+                <xs:sequence>
+                    <xs:element name="arg0" type="xs:long"/>
+                    <xs:element minOccurs="0" name="arg1" type="tns:dataEntity"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="createDataResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getDates">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="getDatesResponse">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:dataEntity"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getUserAddress">
+                <xs:sequence>
+                    <xs:element name="arg0" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getUserAddressResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:addressEntity"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getData">
+                <xs:sequence>
+                    <xs:element name="arg0" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getDataResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:dataEntity"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="updateUser">
+                <xs:sequence>
+                    <xs:element name="arg0" type="xs:long"/>
+                    <xs:element minOccurs="0" name="arg1" type="tns:userEntity"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="updateUserResponse">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="deleteUser">
+                <xs:sequence>
+                    <xs:element name="arg0" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="deleteUserResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="createUser">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="arg0" type="tns:userEntity"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="createUserResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ResourceExceptions" type="tns:ResourceExceptions"/>
+            <xs:complexType name="ResourceExceptions">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="message" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ResourceNotFoundException" type="tns:ResourceNotFoundException"/>
+            <xs:complexType name="ResourceNotFoundException">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="message" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="NoSuchAlgorithmException" type="tns:NoSuchAlgorithmException"/>
+            <xs:complexType name="NoSuchAlgorithmException">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="message" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getDatesResponse">
+        <wsdl:part element="tns:getDatesResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getUsers">
+        <wsdl:part element="tns:getUsers" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createData">
+        <wsdl:part element="tns:createData" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getUserDatesResponse">
+        <wsdl:part element="tns:getUserDatesResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getUserAddress">
+        <wsdl:part element="tns:getUserAddress" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="ResourceNotFoundException">
+        <wsdl:part element="tns:ResourceNotFoundException" name="ResourceNotFoundException">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="updateUserResponse">
+        <wsdl:part element="tns:updateUserResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getUsersResponse">
+        <wsdl:part element="tns:getUsersResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getData">
+        <wsdl:part element="tns:getData" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="deleteUserResponse">
+        <wsdl:part element="tns:deleteUserResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="deleteUser">
+        <wsdl:part element="tns:deleteUser" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="ResourceExceptions">
+        <wsdl:part element="tns:ResourceExceptions" name="ResourceExceptions">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createUser">
+        <wsdl:part element="tns:createUser" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getDataResponse">
+        <wsdl:part element="tns:getDataResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createUserResponse">
+        <wsdl:part element="tns:createUserResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getUser">
+        <wsdl:part element="tns:getUser" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getUserResponse">
+        <wsdl:part element="tns:getUserResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getUserDates">
+        <wsdl:part element="tns:getUserDates" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getDates">
+        <wsdl:part element="tns:getDates" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getUserAddressResponse">
+        <wsdl:part element="tns:getUserAddressResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createDataResponse">
+        <wsdl:part element="tns:createDataResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="updateUser">
+        <wsdl:part element="tns:updateUser" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="NoSuchAlgorithmException">
+        <wsdl:part element="tns:NoSuchAlgorithmException" name="NoSuchAlgorithmException">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="userService">
+        <wsdl:operation name="getUser">
+            <wsdl:input message="tns:getUser" name="getUser">
+            </wsdl:input>
+            <wsdl:output message="tns:getUserResponse" name="getUserResponse">
+            </wsdl:output>
+            <wsdl:fault message="tns:ResourceExceptions" name="ResourceExceptions">
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getUsers">
+            <wsdl:input message="tns:getUsers" name="getUsers">
+            </wsdl:input>
+            <wsdl:output message="tns:getUsersResponse" name="getUsersResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getUserDates">
+            <wsdl:input message="tns:getUserDates" name="getUserDates">
+            </wsdl:input>
+            <wsdl:output message="tns:getUserDatesResponse" name="getUserDatesResponse">
+            </wsdl:output>
+            <wsdl:fault message="tns:ResourceExceptions" name="ResourceExceptions">
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="createData">
+            <wsdl:input message="tns:createData" name="createData">
+            </wsdl:input>
+            <wsdl:output message="tns:createDataResponse" name="createDataResponse">
+            </wsdl:output>
+            <wsdl:fault message="tns:ResourceExceptions" name="ResourceExceptions">
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getDates">
+            <wsdl:input message="tns:getDates" name="getDates">
+            </wsdl:input>
+            <wsdl:output message="tns:getDatesResponse" name="getDatesResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getUserAddress">
+            <wsdl:input message="tns:getUserAddress" name="getUserAddress">
+            </wsdl:input>
+            <wsdl:output message="tns:getUserAddressResponse" name="getUserAddressResponse">
+            </wsdl:output>
+            <wsdl:fault message="tns:ResourceExceptions" name="ResourceExceptions">
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getData">
+            <wsdl:input message="tns:getData" name="getData">
+            </wsdl:input>
+            <wsdl:output message="tns:getDataResponse" name="getDataResponse">
+            </wsdl:output>
+            <wsdl:fault message="tns:ResourceNotFoundException" name="ResourceNotFoundException">
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateUser">
+            <wsdl:input message="tns:updateUser" name="updateUser">
+            </wsdl:input>
+            <wsdl:output message="tns:updateUserResponse" name="updateUserResponse">
+            </wsdl:output>
+            <wsdl:fault message="tns:ResourceExceptions" name="ResourceExceptions">
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteUser">
+            <wsdl:input message="tns:deleteUser" name="deleteUser">
+            </wsdl:input>
+            <wsdl:output message="tns:deleteUserResponse" name="deleteUserResponse">
+            </wsdl:output>
+            <wsdl:fault message="tns:ResourceExceptions" name="ResourceExceptions">
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="createUser">
+            <wsdl:input message="tns:createUser" name="createUser">
+            </wsdl:input>
+            <wsdl:output message="tns:createUserResponse" name="createUserResponse">
+            </wsdl:output>
+            <wsdl:fault message="tns:ResourceExceptions" name="ResourceExceptions">
+            </wsdl:fault>
+            <wsdl:fault message="tns:NoSuchAlgorithmException" name="NoSuchAlgorithmException">
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="userServiceServiceSoapBinding" type="tns:userService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getUser">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getUser">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getUserResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ResourceExceptions">
+                <soap:fault name="ResourceExceptions" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getUsers">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getUsers">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getUsersResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getUserDates">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getUserDates">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getUserDatesResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ResourceExceptions">
+                <soap:fault name="ResourceExceptions" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="createData">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="createData">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="createDataResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ResourceExceptions">
+                <soap:fault name="ResourceExceptions" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getDates">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getDates">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getDatesResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getUserAddress">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getUserAddress">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getUserAddressResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ResourceExceptions">
+                <soap:fault name="ResourceExceptions" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getData">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getData">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getDataResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ResourceNotFoundException">
+                <soap:fault name="ResourceNotFoundException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateUser">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="updateUser">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="updateUserResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ResourceExceptions">
+                <soap:fault name="ResourceExceptions" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteUser">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="deleteUser">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="deleteUserResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ResourceExceptions">
+                <soap:fault name="ResourceExceptions" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="createUser">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="createUser">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="createUserResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ResourceExceptions">
+                <soap:fault name="ResourceExceptions" use="literal"/>
+            </wsdl:fault>
+            <wsdl:fault name="NoSuchAlgorithmException">
+                <soap:fault name="NoSuchAlgorithmException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="userServiceService">
+        <wsdl:port binding="tns:userServiceServiceSoapBinding" name="userServicePort">
+            <soap:address location="http://localhost:8888/UserServer-1.0/userService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
